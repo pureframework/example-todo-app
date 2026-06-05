@@ -2,6 +2,7 @@
 
 use PureFramework\ConstraintViolation;
 use PureFramework\ErrorResponse;
+use PureFramework\Response;
 use PureFramework\SuccessResponse;
 
 function todo_list_for_account(string $accountUuid): array
@@ -38,11 +39,11 @@ function todo_create(string $accountUuid, array $data): SuccessResponse|ErrorRes
 
 	$title = $data['title'];
 
-	$todo = DB::objectFactory('todo', true, [
+	$todo = DB::objectInsertFactory('todo', [
 		'account_uuid' => $accountUuid,
 		'title' => $title,
 		'completed_at' => null,
-	], 'todo_uuid');
+	]);
 
 	$inserted = DB::insert('todo', $todo);
 	if ($inserted === false) {
@@ -55,8 +56,11 @@ function todo_create(string $accountUuid, array $data): SuccessResponse|ErrorRes
 /**
  * First human-readable message from a failed todo_create() response.
  */
-function todo_create_error_message(ErrorResponse $response): string
+function todo_create_error_message(Response $response): string
 {
+	if (!$response->isError()) {
+		return 'Could not add todo.';
+	}
 	if (is_array($response->related)) {
 		foreach ($response->related as $field => $violation) {
 			if (!ConstraintViolation::isInstance($violation)) {

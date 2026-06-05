@@ -2,7 +2,6 @@
 
 use PureFramework\Csrf;
 use PureFramework\Display;
-use PureFramework\ErrorResponse;
 use PureFramework\Form;
 use PureFramework\TrimTransform;
 
@@ -27,11 +26,9 @@ if ($REQUEST->isPost()) {
 	if ($form->validate()) {
 		$result = todo_create($accountUuid, $form->getValues());
 
-		if ($result->success()) {
+		if ($result->isSuccess()) {
 			Display::redirect('/todos');
-		}
-
-		if ($result instanceof ErrorResponse) {
+		} elseif ($result->isError()) {
 			$addTodoError = todo_create_error_message($result);
 		}
 	}

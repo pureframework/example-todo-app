@@ -2,6 +2,7 @@
 
 use PureFramework\ConstraintViolation;
 use PureFramework\ErrorResponse;
+use PureFramework\Response;
 use PureFramework\SuccessResponse;
 
 function account_fetch_by_username(string $username): ?object
@@ -31,10 +32,10 @@ function account_create(array $data): SuccessResponse|ErrorResponse
 		return new ErrorResponse('That username is already taken.');
 	}
 
-	$account = DB::objectFactory('account', true, [
+	$account = DB::objectInsertFactory('account', [
 		'username' => $username,
 		'password_hash' => password_hash($password, PASSWORD_DEFAULT),
-	], 'account_uuid');
+	]);
 
 	$inserted = DB::insert('account', $account);
 	if ($inserted === false) {
@@ -44,8 +45,11 @@ function account_create(array $data): SuccessResponse|ErrorResponse
 	return new SuccessResponse($account->account_uuid);
 }
 
-function account_create_error_message(ErrorResponse $response): string
+function account_create_error_message(Response $response): string
 {
+	if (!$response->isError()) {
+		return 'Could not create account.';
+	}
 	if (is_array($response->related)) {
 		foreach ($response->related as $field => $violation) {
 			if (!ConstraintViolation::isInstance($violation)) {

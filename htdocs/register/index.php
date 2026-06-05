@@ -2,7 +2,6 @@
 
 use PureFramework\Csrf;
 use PureFramework\Display;
-use PureFramework\ErrorResponse;
 use PureFramework\Form;
 use PureFramework\TrimTransform;
 
@@ -31,12 +30,10 @@ if ($REQUEST->isPost()) {
 		$values = $form->getValues();
 		$result = account_create($values);
 
-		if ($result->success()) {
+		if ($result->isSuccess()) {
 			auth_login($values['username'], $values['password']);
 			Display::redirect('/todos');
-		}
-
-		if ($result instanceof ErrorResponse) {
+		} elseif ($result->isError()) {
 			$formError = account_create_error_message($result);
 		}
 	}

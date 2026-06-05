@@ -35,9 +35,9 @@ $demoUser = 'demo';
 $existing = DB::fetchSingle('account', ['username' => $demoUser]);
 if ($existing === null) {
 	$result = account_create(['username' => $demoUser, 'password' => 'demo12345']);
-	if ($result->success()) {
+	if ($result->isSuccess()) {
 		echo "Created demo account: username \"{$demoUser}\", password \"demo12345\"\n";
-	} else {
+	} elseif ($result->isError()) {
 		fwrite(STDERR, 'Could not create demo account: ' . account_create_error_message($result) . "\n");
 	}
 } else {

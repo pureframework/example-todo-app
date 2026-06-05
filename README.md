@@ -46,10 +46,11 @@ This runs `sql/account.sql` and `sql/todo.sql`, and seeds a demo account:
 Regenerate row classes after changing SQL:
 
 ```bash
-php path/to/pure-framework/bin/pure-generate-classes ./sql ./includes/dbGeneratedClasses.php
+composer generate-dto
+# or: php scripts/generate-dto-classes.php
 ```
 
-(From a machine with the framework package installed, or use the local `pure-framework` checkout.)
+The script is `scripts/generate-dto-classes.php` (option A cache file). See [Pure Framework — application script](https://github.com/pureframework/pure-framework/blob/main/docs/database.md#application-script-scriptsgenerate-dto-classesphp) for option B and typed output.
 
 ## Web server
 
@@ -85,7 +86,8 @@ Sessions use Pure Framework `Session` bootstrap helpers; auth state lives in `in
 | `sql/` | Table definitions (`account`, `todo`) |
 | `templates/` | Layout and partials |
 | `scripts/setup-db.php` | Database bootstrap |
+| `scripts/generate-dto-classes.php` | Regenerate `includes/dbGeneratedClasses.php` from `sql/` |
 
 ## Dependency
 
-The app depends on Packagist package `pureframework/pure-framework` (^1.0), not a path repository to a local checkout.
+The app depends on Packagist package `pureframework/pure-framework` (^1.3), not a path repository to a local checkout.

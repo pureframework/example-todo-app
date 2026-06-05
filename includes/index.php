@@ -7,7 +7,6 @@ require_once __DIR__ . '/constraints/MinLengthConstraint.php';
 require_once __DIR__ . '/constraints/UsernamePatternConstraint.php';
 require_once __DIR__ . '/constraints/AccountConstraint.php';
 require_once __DIR__ . '/constraints/TodoConstraint.php';
-require_once __DIR__ . '/successOrError.php';
 
 if (is_file(__DIR__ . '/dbGeneratedClasses.php')) {
 	require_once __DIR__ . '/dbGeneratedClasses.php';
