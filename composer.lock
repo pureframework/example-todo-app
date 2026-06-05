@@ -1,0 +1,86 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "1ecc0f9e27646dfd07337336e9af3fd8",
+    "packages": [
+        {
+            "name": "pureframework/pure-framework",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pureframework/pure-framework.git",
+                "reference": "cfdb452dea2dbbd1daba41478d3fe680da0e2080"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pureframework/pure-framework/zipball/cfdb452dea2dbbd1daba41478d3fe680da0e2080",
+                "reference": "cfdb452dea2dbbd1daba41478d3fe680da0e2080",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "10.5"
+            },
+            "bin": [
+                "bin/pure-generate-classes",
+                "bin/pure-new-site"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "PureFramework\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan Sharp",
+                    "email": "jonathan@havenpines.com"
+                }
+            ],
+            "description": "Thin PHP framework: router, DB, forms, constraints, templates",
+            "homepage": "https://github.com/pureframework/pure-framework",
+            "keywords": [
+                "Forms",
+                "framework",
+                "pdo",
+                "php",
+                "router",
+                "templates",
+                "validation"
+            ],
+            "support": {
+                "issues": "https://github.com/pureframework/pure-framework/issues",
+                "source": "https://github.com/pureframework/pure-framework"
+            },
+            "time": "2026-06-04T00:31:17+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {},
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=8.1"
+    },
+    "platform-dev": {},
+    "plugin-api-version": "2.6.0"
+}

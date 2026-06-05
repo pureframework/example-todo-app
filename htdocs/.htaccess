@@ -1,0 +1,19 @@
+Options -MultiViews -Indexes
+DirectorySlash Off
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  RewriteRule ^offline\.php$ - [L]
+
+  RewriteCond %{THE_REQUEST} \s/+[^\s?]*\.php(?:[?\s]|$) [NC]
+  RewriteCond %{REQUEST_URI} !^/offline\.php$ [NC]
+  RewriteRule ^ - [F,L]
+
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteCond %{REQUEST_URI} !\.php$ [NC]
+  RewriteRule ^ - [L]
+
+  RewriteRule ^ index.php [L]
+</IfModule>

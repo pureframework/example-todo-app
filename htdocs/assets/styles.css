@@ -1,0 +1,84 @@
+body {
+	font-family: system-ui, sans-serif;
+	line-height: 1.5;
+	max-width: 40rem;
+	margin: 0 auto;
+	padding: 1rem;
+}
+
+#site-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1.5rem;
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 0.75rem;
+}
+
+#site-header nav {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+}
+
+.nav-logout {
+	display: inline;
+	margin: 0;
+}
+
+.nav-logout button {
+	font: inherit;
+	cursor: pointer;
+}
+
+.error {
+	color: #b00020;
+	margin: 0.25rem 0;
+}
+
+.todo-list {
+	list-style: none;
+	padding: 0;
+}
+
+.todo-item {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	padding: 0.5rem 0;
+	border-bottom: 1px solid #eee;
+}
+
+.todo-item.done .todo-title {
+	text-decoration: line-through;
+	color: #666;
+}
+
+.todo-actions {
+	margin-left: auto;
+	display: flex;
+	gap: 0.5rem;
+}
+
+form.stack label {
+	display: block;
+	margin-top: 0.75rem;
+}
+
+form.stack input[type="text"],
+form.stack input[type="password"] {
+	width: 100%;
+	max-width: 20rem;
+}
+
+form.add-todo {
+	margin-bottom: 1.5rem;
+	display: flex;
+	gap: 0.5rem;
+	align-items: flex-end;
+}
+
+form.add-todo input[type="text"] {
+	flex: 1;
+	max-width: none;
+}

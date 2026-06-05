@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * Copy to _env.php and set local database credentials (gitignored).
+ */
+
+define('PURE_DB_USERNAME', 'root');
+define('PURE_DB_PASSWORD', '');
