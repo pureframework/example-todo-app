@@ -23,7 +23,7 @@ cp _env.php.example _env.php
 # Edit _env.php with your MySQL user and password
 ```
 
-Create the MySQL database (name must match `dbname=` in `config.php`, default `example_todo_app`). Example:
+Create the MySQL database (name must match `dbname=` in `_env.php`, default `example_todo_app`). Example:
 
 ```sql
 CREATE DATABASE example_todo_app CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;

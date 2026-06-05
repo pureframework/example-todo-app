@@ -42,7 +42,6 @@ function todo_create(string $accountUuid, array $data): SuccessResponse|ErrorRes
 	$todo = DB::objectInsertFactory('todo', [
 		'account_uuid' => $accountUuid,
 		'title' => $title,
-		'completed_at' => null,
 	]);
 
 	$inserted = DB::insert('todo', $todo);

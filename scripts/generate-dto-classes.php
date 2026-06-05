@@ -16,7 +16,7 @@ use PureFramework\DbGenerateClasses;
 
 const DTO_SQL_PATH   = __DIR__ . '/../sql';
 const DTO_CACHE_FILE = __DIR__ . '/../includes/dbGeneratedClasses.php';
-const DTO_TYPED      = false;
+const DTO_TYPED      = true;
 
 $generated = DbGenerateClasses::generateFromPath(
     DTO_SQL_PATH,
