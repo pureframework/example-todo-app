@@ -39,8 +39,8 @@ php scripts/setup-db.php
 
 This runs `sql/account.sql` and `sql/todo.sql`, and seeds a demo account:
 
-| Username | Password   |
-|----------|------------|
+| Username | Password    |
+| -------- | ----------- |
 | `demo`   | `demo12345` |
 
 Regenerate row classes after changing SQL:
@@ -79,15 +79,15 @@ Sessions use Pure Framework `Session` bootstrap helpers; auth state lives in `in
 
 ## Project layout
 
-| Path | Purpose |
-|------|---------|
-| `htdocs/` | Document root, routes in `index.php` |
-| `includes/` | `DB`, auth, entities, constraints |
-| `sql/` | Table definitions (`account`, `todo`) |
-| `templates/` | Layout and partials |
-| `scripts/setup-db.php` | Database bootstrap |
+| Path                               | Purpose                                                  |
+| ---------------------------------- | -------------------------------------------------------- |
+| `htdocs/`                          | Document root, routes in `index.php`                     |
+| `includes/`                        | `DB`, auth, entities, constraints                        |
+| `sql/`                             | Table definitions (`account`, `todo`)                    |
+| `templates/`                       | Layout and partials                                      |
+| `scripts/setup-db.php`             | Database bootstrap                                       |
 | `scripts/generate-dto-classes.php` | Regenerate `includes/dbGeneratedClasses.php` from `sql/` |
 
 ## Dependency
 
-The app depends on Packagist package `pureframework/pure-framework` (^1.3), not a path repository to a local checkout.
+The app depends on Packagist package `pureframework/pure-framework` (^1.4), not a path repository to a local checkout. Entity updates use `DB::objectUpdateFactory()` so typed DTO `$updateSkip` protects identity columns.

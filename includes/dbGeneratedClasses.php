@@ -1,5 +1,5 @@
 <?php
-// GENERATED Fri, 05 Jun 2026 20:45:05 +0000
+// GENERATED Sun, 07 Jun 2026 03:08:24 +0000
 
 // account.sql
 /**
@@ -16,6 +16,9 @@ class account {
 
   /** @var list<string> Columns omitted on insert (auto-increment / DB defaults) */
   public static array $insertSkip = ['id', 'created', 'updated'];
+
+  /** @var list<string> Columns omitted on update (identity / immutable) */
+  public static array $updateSkip = ['id', 'created', 'account_uuid'];
 
   public int $id = 0;
   public string $created = '';
@@ -41,6 +44,9 @@ class todo {
 
   /** @var list<string> Columns omitted on insert (auto-increment / DB defaults) */
   public static array $insertSkip = ['id', 'created', 'updated'];
+
+  /** @var list<string> Columns omitted on update (identity / immutable) */
+  public static array $updateSkip = ['id', 'created', 'todo_uuid'];
 
   public int $id = 0;
   public string $created = '';

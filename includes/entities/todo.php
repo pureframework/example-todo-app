@@ -91,9 +91,11 @@ function todo_toggle(string $accountUuid, string $todoUuid): bool
 		? null
 		: date('Y-m-d H:i:s');
 
-	DB::update('todo', (object) ['completed_at' => $completedAt], ['todo_uuid' => $todoUuid]);
+	$patch = DB::objectUpdateFactory('todo', [
+		'completed_at' => $completedAt,
+	]);
 
-	return true;
+	return DB::update('todo', $patch, ['todo_uuid' => $todoUuid]) !== false;
 }
 
 function todo_delete(string $accountUuid, string $todoUuid): bool
